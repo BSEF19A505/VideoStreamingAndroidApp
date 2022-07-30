@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Audio Player Mobile App</string>
+    <string name="music_app">MusiC App</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="stop">Stop</string>
+</resources>
