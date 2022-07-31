@@ -10,6 +10,9 @@ import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.SeekBar;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     AudioManager audioManager;
@@ -57,5 +60,30 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        SeekBar seekProg=findViewById(R.id.ProgBar);
+
+        seekProg.setMax(mediaPlayer.getDuration());
+        seekProg.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                mediaPlayer.seekTo(i);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        new Timer().scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                seekProg.setProgress(mediaPlayer.getCurrentPosition());
+            }
+        },0,900);
     }
 }
