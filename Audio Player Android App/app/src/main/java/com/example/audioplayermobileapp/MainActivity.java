@@ -40,5 +40,22 @@ public class MainActivity extends AppCompatActivity {
 
         seekVol.setMax(maxVol);
         seekVol.setProgress(curVol);
+        seekVol.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+
+                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,i,0);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
     }
 }
