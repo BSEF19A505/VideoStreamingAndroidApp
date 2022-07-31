@@ -8,6 +8,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.ContextThemeWrapper;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 
 import java.util.Timer;
@@ -28,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer.stop();
 
     }
+//    public void vol(View view){
+//        ImageView imageView=findViewById(R.id.imageView2);
+//        imageView.setImageResource(R.drawable.speaker0);
+//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         SeekBar seekProg=findViewById(R.id.ProgBar);
 
         seekProg.setMax(mediaPlayer.getDuration());

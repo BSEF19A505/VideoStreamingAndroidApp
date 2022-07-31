@@ -10,40 +10,44 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
 
 
+    ImageView img;
 
-        public void next(View view)
-        {
-            ImageView img = (ImageView) findViewById(R.id.image);
-            int i = Integer.parseInt(img.getTag().toString());
-            img.setTranslationX(1000f);
 
-            if(i==1) {
-                img.setImageResource(R.drawable.two);
-                img.setTag(2);
-            }
-            else if(i==2) {
-                img.setImageResource(R.drawable.three);
-                img.setTag(3);
-            }
-            else if(i==3) {
-                img.setImageResource(R.drawable.four);
-                img.setTag(4);
-            }
-            else if(i==4) {
-                img.setImageResource(R.drawable.five);
-                img.setTag(5);
-            }
-            else if (i==5){
-                img.setImageResource(R.drawable.six);
-                img.setTag(6);
-            }else{
-                img.setImageResource(R.drawable.one);
-            }
-            img.animate().translationXBy(-1000f).setDuration(300);
-        }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+    int counter=0;
+    public void next(View view)
+    {
+
+        String image="image"+counter;
+
+        int x = this.getResources().getIdentifier(image, "id", getPackageName());
+        img= findViewById(x);
+        img.setAlpha(0f);
+
+        counter=(counter+1)%5;
+        String imagey="image"+counter;
+        int y = this.getResources().getIdentifier(imagey, "id", getPackageName());
+        img=findViewById(y);
+        img.setAlpha(1f);
+    }
+    public void prev(View view)
+    {
+
+        String image="image"+counter;
+
+        int x = this.getResources().getIdentifier(image, "id", getPackageName());
+        img= findViewById(x);
+        img.setAlpha(0f);
+
+        counter=(5+counter+1)%5;
+        String imagey="image"+counter;
+        int y = this.getResources().getIdentifier(imagey, "id", getPackageName());
+        img=findViewById(y);
+        img.setAlpha(1f);
     }
 }
