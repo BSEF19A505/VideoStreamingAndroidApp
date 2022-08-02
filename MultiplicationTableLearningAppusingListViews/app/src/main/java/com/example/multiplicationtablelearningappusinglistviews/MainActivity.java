@@ -34,8 +34,10 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, table2.class);
 
                     startActivity(intent);
-                }else{
-                    Toast.makeText(MainActivity.this, "NoActivity", Toast.LENGTH_SHORT).show();
+                }if(i==1){
+                    Intent intent = new Intent(MainActivity.this, table3.class);
+
+                    startActivity(intent);
                 }
             }
         });
